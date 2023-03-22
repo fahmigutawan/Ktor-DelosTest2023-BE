@@ -5,6 +5,7 @@ import org.koin.dsl.module
 
 object TableInjection {
     val provide = module {
-        single{UserTable}
+        single { UserTable }
+        single { TableInjection }
     }
 }

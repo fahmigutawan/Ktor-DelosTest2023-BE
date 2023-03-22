@@ -10,17 +10,23 @@ import com.example.model.response.user.RegisterResponse
 import com.example.model.response.user.RegisterResponseData
 import com.example.util.PasswordManager
 import com.example.util.TokenManager
+import com.example.wrapper.jwtAuthenticator
 import com.example.wrapper.sendGeneralResponse
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import org.h2.util.DateTimeUtils
+import org.jetbrains.exposed.sql.exposedLogger
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.select
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import org.koin.ktor.ext.get
+import java.sql.Time
+import java.time.Duration
 import java.util.*
 
 object UserApi:KoinComponent {
@@ -84,6 +90,7 @@ object UserApi:KoinComponent {
                         it[email] = body.email ?: ""
                         it[password] = hashedPw
                         it[name] = body.name ?: ""
+                        it[coin] = 100000
                     }
                 }
             }

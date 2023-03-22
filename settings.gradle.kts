@@ -1,0 +1,1 @@
+rootProject.name = "com.example.delos-test-2023-be"

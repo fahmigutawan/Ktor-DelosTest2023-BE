@@ -34,3 +34,6 @@ out/
 
 ### VS Code ###
 .vscode/
+.vscode/secret.properties
+secret.properties
+application.conf
